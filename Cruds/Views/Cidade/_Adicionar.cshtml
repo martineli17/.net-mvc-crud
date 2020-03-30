@@ -1,0 +1,22 @@
+﻿@model Apresentation.Models.Cidade.CidadeViewModelPost
+
+<form id="formPaisPost" data-ajax="true" data-ajax-success="Adicionar" data-ajax-method="post" asp-controller="Cidade" asp-action="Post">
+    <input type="text" hidden id="idCidade" />
+    <input type="text" hidden id="idEstadoHidden" />
+    <div class="row">
+        <div class="col">
+            <input asp-for="Descricao" type="text" class="form-control" placeholder="Descrição" id="descricaoCidade" name="Descricao" />
+        </div>
+        <div class="col">
+            @await Component.InvokeAsync("Estado")
+        </div>
+        <div class="col">
+            <button class="btn btn-outline-success" id="btnSalvarCidade" type="submit">Salvar</button>
+            <button class="btn btn-outline-warning" id="btnEditarCidade" type="button">Editar</button>
+            <button class="btn btn-outline-danger" id="btnCancelarCidade" type="button">Cancelar</button>
+        </div>
+    </div>
+</form>
+<div style="overflow: auto; max-height: 400px;margin-top: 03%">
+    <div id="gridCidade"></div>
+</div>

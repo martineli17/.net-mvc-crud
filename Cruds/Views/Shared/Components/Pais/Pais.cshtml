@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Apresentation.Models.Pais.PaisViewModelGet>
+
+<select name="IdPais" id="IdPais" class="form-control"> 
+   @{ 
+       <option value="">Selecione o país</option>
+       foreach (var item in Model.OrderBy(p => p.Descricao))
+       {
+           <option value="@item.Id">@item.Descricao</option>
+       }
+   }
+</select>

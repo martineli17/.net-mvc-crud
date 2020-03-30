@@ -1,0 +1,22 @@
+﻿@model Apresentation.Models.Estado.EstadoViewModelPost
+
+<form id="formPaisPost" data-ajax="true" data-ajax-success="Adicionar" data-ajax-method="post" asp-controller="Estado" asp-action="Post">
+    <input type="text" hidden id="idEstado"/>
+    <input type="text" hidden id="idPaisHidden"/>
+    <div class="row">
+        <div class="col">
+            <input asp-for="Descricao" type="text" class="form-control" placeholder="Descrição" id="descricaoEstado" name="Descricao" />
+        </div>
+        <div class="col">
+            @await Component.InvokeAsync("Pais")
+        </div>
+        <div class="col">
+            <button class="btn btn-outline-success" id="btnSalvarEstado" type="submit">Salvar</button>
+            <button class="btn btn-outline-warning" id="btnEditarEstado" type="button">Editar</button>
+            <button class="btn btn-outline-danger" id="btnCancelarEstado" type="button">Cancelar</button>
+        </div>
+    </div>
+</form>
+<div style="overflow: auto; max-height: 400px;margin-top: 03%">
+    <div id="gridEstado"></div>
+</div>

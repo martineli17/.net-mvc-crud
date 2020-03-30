@@ -1,0 +1,34 @@
+﻿@model Apresentation.Models.Paciente.PacienteViewModelPost
+
+<form id="formPaisPost" data-ajax="true" data-ajax-success="Adicionar" data-ajax-method="post" asp-controller="Paciente" asp-action="Post">
+    <input type="text" hidden id="idPaciente" />
+    <input type="text" hidden id="idEstadoHidden" />
+    <input type="text" hidden id="idCidadeHidden" />
+    <input type="text" hidden id="idPaisHidden" />
+    <div class="row">
+        <div class="col">
+            <input asp-for="Nome" type="text" class="form-control" placeholder="Nome" id="nomePaciente" name="Nome" />
+        </div>
+        <div class="col">
+            <input asp-for="Cpf" type="text" class="form-control cpf" placeholder="CPF" id="cpfPaciente" name="Cpf" />
+        </div>
+        <div class="col">
+            @await Component.InvokeAsync("Pais")
+        </div>
+        <div class="col">
+            @await Component.InvokeAsync("Estado")
+        </div>
+        <div class="col">
+            @await Component.InvokeAsync("Cidade")
+        </div>
+        <div class="col">
+            <button class="btn btn-outline-success" id="btnSalvarPaciente" type="submit">Salvar</button>
+            <button class="btn btn-outline-warning" id="btnEditarPaciente" type="button">Editar</button>
+            <button class="btn btn-outline-danger" id="btnCancelarPaciente" type="button">Cancelar</button>
+        </div>
+    </div>
+</form>
+<div style="overflow: auto; max-height: 400px;margin-top: -2%">
+    <div id="gridPaciente"></div>
+</div>
+

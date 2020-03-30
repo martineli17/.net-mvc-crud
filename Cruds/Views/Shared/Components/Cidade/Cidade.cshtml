@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Apresentation.Models.Cidade.CidadeViewModelGet>
+
+<select name="IdCidade" id="IdCidade" class="form-control">
+    @{
+        <option value="">Selecione a cidade</option>
+        foreach (var item in Model.OrderBy(e => e.Descricao))
+        {
+            <option value="@item.Id">@item.Descricao</option>
+        }
+    }
+</select>
+
+

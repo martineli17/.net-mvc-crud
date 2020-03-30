@@ -1,0 +1,21 @@
+﻿@model Apresentation.Models.Pais.PaisViewModelPost
+
+<form id="formPaisPost" data-ajax="true" data-ajax-success="Adicionar" data-ajax-method="post" asp-controller="Pais" asp-action="Post">
+    <input asp-for="Id" type="text" hidden id="idPais" name="Id" />
+    <div class="row">
+        <div class="col">
+            <input asp-for="Descricao" type="text" class="form-control" placeholder="Descrição" id="descricaoPais" name="Descricao" />
+        </div>
+        <div class="col">
+            <button class="btn btn-outline-success" id="btnSalvarPais" type="submit">Salvar</button>
+            <button  class="btn btn-outline-warning" id="btnEditarPais" type="button">Editar</button>
+            <button  class="btn btn-outline-danger" id="btnCancelarPais" type="button">Cancelar</button>
+        </div>
+    </div>
+</form>
+<div style="overflow: auto; max-height: 400px;margin-top: -2%">
+    <div id="gridPais"></div>
+</div>
+
+
+

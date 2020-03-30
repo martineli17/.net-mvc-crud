@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Apresentation.Models.Pais.PaisViewModelGet>
+
+@{ 
+    int count = 0;
+    Layout = null;
+}
+<table class="table table-hover" style="width: 100%; margin-top: 05%;">
+    <thead>
+        <tr class="thead-dark">
+            <th class="text-center">#</th>
+            <th class="text-center">Nome</th>
+            <th class="text-center">Editar</th>
+            <th class="text-center">Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        {
+            foreach (var item in Model.OrderBy(p => p.Descricao))
+            {
+                count++;
+                <tr>
+                    <td class="text-center">@count</td>
+                    <td class="text-center">@item.Descricao</td>
+                    <td class="text-center"><button class="btn btn-outline-warning" onclick="Editar('@item.Id', '@item.Descricao')">-</button></td>
+                    <td class="text-center"><button class="btn btn-outline-danger" onclick="Excluir('@item.Id')">-</button></td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>
